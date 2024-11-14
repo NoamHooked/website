@@ -1,0 +1,539 @@
+/* Define Color Variables */
+:root {
+  --primary-color: #006699;
+  --secondary-color: #ffcc00;
+  --highlight-color: #ff9900;
+  --text-color: #333;
+  --white-color: #ffffff;
+  --gray-color: #cfcfcf;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body & General Styles */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0; /* Light grey background */
+  color: var(--text-color);
+  text-align: center;
+  margin-left: 200px; /* Add margin to offset the fixed sidebar */
+}
+
+/* Header */
+header {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 20px;
+  position: fixed;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Main Content */
+main {
+  padding: 30px;
+  background-color: var(--white-color);
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+/* Footer */
+footer {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px;
+  font-size: 0.8rem;
+  margin-top: auto;
+}
+
+/* Intro Section */
+.intro p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+/* Navigation Section */
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  background-color: var(--primary-color);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+  padding-left: 10px; /* Space from the left */
+  padding-right: 15px;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: stretch; /* Make buttons stretch to fill the container's width */
+}
+
+.nav-buttons .button {
+  padding: 12px 25px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+  width: 100%; /* Ensures all buttons take the full width of the parent container */
+  text-align: left;
+  margin: 1px 0; /* Adds space between buttons */
+}
+.nav-buttons .button:hover {
+  background-color: var(--highlight-color);
+  color: var(--white-color);
+}
+/* Dropdown Styling */
+.dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--secondary-color);
+  width: 100%;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 5px 0;
+}
+
+.dropdown-content a {
+  color: var(--primary-color);
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  font-weight: bold;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--highlight-color);
+  color: var(--white-color);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Video Section */
+.video-section {
+  margin: 40px auto;
+  text-align: center;
+}
+
+.video-section h2 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.video-section video {
+  max-width: 100%;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+/* Image Gallery */
+.gallery {
+  margin: 40px auto;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Big Gallery */
+.big-gallery {
+  margin: 40px auto;
+  text-align: center;
+  max-width: 800px;
+}
+
+.big-gallery h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.big-gallery h2 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.big-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Adjust as needed */
+  gap: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.big-image-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+  transition: transform 0.3s;
+}
+
+.big-image-grid img:hover {
+  transform: scale(1.05);
+}
+
+.big-image-grid button {
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.big-image-grid button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.05);
+}
+
+.story-button {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 0;
+  height: 200px; /* Adjust based on image aspect ratio */
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.story-button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.story-button span {
+  position: absolute;
+  bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+/* Testimonials */
+.borderText {
+  background-color: var(--secondary-color);
+  padding: 30px 40px; /* Add more padding for prominence */
+  border-radius: 20px;
+
+  text-align: center;
+  max-width: 800px; /* Wider box for a bold effect */
+  margin: 20px auto; /* Center the box with a bit of spacing */
+  font-size: 2rem; /* Larger font size for a more impactful appearance */
+  font-weight: bold; /* Make the text bold */
+  line-height: 1.2; /* Adjust line height for better spacing */
+  letter-spacing: px; /* Increase letter spacing to make it look more spaced out */
+  color: var(
+    --primary-color
+  ); /* Use primary color for the text to match the theme */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Add subtle shadow for emphasis */
+  border: 3px solid var(--primary-color); /* Add a border for more definition */
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+/* Testimonials */
+.testimonials {
+  background-color: var(--secondary-color);
+  padding: 30px;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+.testimonial-card {
+  background-color: var(--white-color);
+  padding: 15px;
+  margin: 10px auto;
+  max-width: 500px;
+  border: 2px solid var(--primary-color);
+}
+
+/* FAQ Section */
+.faq {
+  margin: 40px auto;
+  padding: 30px;
+  background-color: var(
+    --gray-color
+  ); /* Use the white color defined in the root */
+  max-width: 800px; /* Control the maximum width */
+  border-radius: 8px;
+  border: 2px solid var(--primary-color); /* Add a border for consistency with your theme */
+}
+
+.faq h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color); /* Use the primary color for heading */
+}
+
+.faq-item {
+  background-color: var(
+    --white-color
+  ); /* Ensures the item background is white */
+  padding: 15px;
+  margin: 10px 0;
+  border: 2px solid var(--primary-color); /* Border to match the theme */
+  border-radius: 8px;
+}
+
+.faq-item h3 {
+  color: var(--primary-color); /* Primary color for item titles */
+  font-size: 1.2rem;
+}
+
+.faq-item p {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: var(--text-color); /* Use text color for readability */
+}
+
+/* Blog Posts */
+.blog-posts {
+  margin: 40px auto;
+}
+
+.blog-posts h2 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.blog-card {
+  background-color: var(--white-color);
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 600px;
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+.blog-card h3 {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.blog-card .read-more {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Accordion Section */
+.accordion-section {
+  margin: 40px auto;
+}
+
+.accordion-btn {
+  background-color: var(--secondary-color);
+  padding: 10px 15px;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+
+.accordion-content {
+  background-color: var(--white-color);
+  padding: 10px 15px;
+  display: none;
+  font-size: 1rem;
+}
+
+.accordion-btn:focus + .accordion-content {
+  display: block;
+}
+
+/* Animated Numbers Section */
+.animated-numbers {
+  margin: 40px auto;
+}
+
+.numbers-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.number p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Quiz Section */
+.quiz-section {
+  margin: 40px auto;
+}
+
+.quiz-section p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.quiz-option {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.quiz-option:hover {
+  background-color: var(--highlight-color);
+}
+
+#quiz-result {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Countdown Timer Section */
+.countdown-section {
+  margin: 40px auto;
+}
+
+#countdown {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* About */
+
+.middle-style p {
+  max-width: 1000px; /* Restrict paragraph width */
+  margin: 1em auto; /* Center text and add spacing */
+  line-height: 1.5; /* Improve readability */
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+}
+
+.slide-img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.slide {
+  display: none;
+}
+
+.fade {
+  animation: fadeEffect 1.5s;
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s;
+  border-radius: 3px;
+  user-select: none;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
