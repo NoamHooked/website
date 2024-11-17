@@ -1,11 +1,14 @@
 /* Define Color Variables */
 :root {
-  --primary-color: #006699;
-  --secondary-color: #ffcc00;
-  --highlight-color: #ff9900;
-  --text-color: #333;
+  --primary-color: #0077cc;
+  --primarydark-color: #505b61;
+  --secondary-color: #ffd700;
+  --highlight-color: #ff6600;
+  --text-color: #2d2d2d;
   --white-color: #ffffff;
-  --gray-color: #cfcfcf;
+  --gray-color: #eaeaea;
+  --background-gradient: linear-gradient(135deg, #0077cc, #4c9aff);
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Reset */
@@ -24,18 +27,17 @@ body {
   background-color: #f0f0f0; /* Light grey background */
   color: var(--text-color);
   text-align: center;
-  margin-left: 200px; /* Add margin to offset the fixed sidebar */
 }
 
 /* Header */
 header {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   color: var(--white-color);
   padding: 20px;
-  position: fixed;
+  text-align: center;
   font-size: 2rem;
-  position: relative;
-  z-index: 2;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px var(--shadow-color);
 }
 
 /* Main Content */
@@ -63,76 +65,108 @@ footer {
 }
 
 /* Navigation Section */
-.navigation {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 200px;
-  background-color: var(--primary-color);
-  padding-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  z-index: 1;
-  padding-left: 10px; /* Space from the left */
-  padding-right: 15px;
-}
 
 .nav-buttons {
-  display: flex;
-  flex-direction: column; /* Stack buttons vertically */
-  align-items: stretch; /* Make buttons stretch to fill the container's width */
+  display: flex; /* Arrange buttons in a row */
+  flex-wrap: wrap; /* Ensure they wrap if the screen is too small */
+  justify-content: center; /* Center the buttons under the logo */
+  margin-top: 20px; /* Add spacing below the logo */
+  gap: 10px; /* Add space between buttons */
+}
+
+.nav-buttons .button:hover {
+  background: var(--highlight-color);
+  color: var(--white-color);
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px var(--shadow-color);
+}
+
+/* Dropdown Styling */
+
+.nav-buttons {
+  display: flex; /* Arrange buttons horizontally */
+  gap: 20px; /* Add space between buttons */
 }
 
 .nav-buttons .button {
   padding: 12px 25px;
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--highlight-color)
+  );
+
   text-decoration: none;
+  color: var(--primarydark-color);
   font-size: 1rem;
-  font-weight: bold;
-  border: 2px solid var(--primary-color);
-  border-radius: 5px;
-  width: 100%; /* Ensures all buttons take the full width of the parent container */
-  text-align: left;
-  margin: 1px 0; /* Adds space between buttons */
+  font-weight: 600;
+  border: none;
+  border-style: solid;
+  border-color: #2d2d2d;
+  border-radius: 4px; /* Slightly more rounded corners for a modern look */
+  text-align: center;
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
+  box-shadow: 0px 2px 5px var(--shadow-color);
 }
+
 .nav-buttons .button:hover {
-  background-color: var(--highlight-color);
+  background: linear-gradient(
+    135deg,
+    var(--highlight-color),
+    var(--secondary-color)
+  );
   color: var(--white-color);
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0px 8px 20px var(--shadow-color);
 }
+
 /* Dropdown Styling */
 .dropdown {
   position: relative;
-  width: 100%;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--secondary-color);
-  width: 100%;
-  border: 2px solid var(--primary-color);
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 5px 0;
+
+  background: linear-gradient(
+    135deg,
+    var(--secondary-color),
+    var(--highlight-color)
+  ); /* Match button gradient */
+  width: auto;
+  border: solid; /* Remove border for a clean look */
+  border-color: #505b61;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for dropdown */
+  border-radius: 8px; /* Match button's rounded corners */
+  z-index: 1;
+  overflow: hidden; /* Smoothly handle rounded corners */
 }
 
 .dropdown-content a {
-  color: var(--primary-color);
-  padding: 10px 15px;
+  color: var(--white-color);
+  padding: 12px 20px; /* Slightly larger padding for modern feel */
   text-decoration: none;
   display: block;
-  font-weight: bold;
+  font-size: 0.9rem; /* Slightly smaller than main buttons */
+  font-weight: 500;
+  color: #2d2d2d;
+  transition: all 0.3s ease; /* Smooth transitions for hover effects */
 }
 
 .dropdown-content a:hover {
-  background-color: var(--highlight-color);
+  background: linear-gradient(
+    135deg,
+    var(--highlight-color),
+    var(--secondary-color)
+  ); /* Invert gradient for hover */
   color: var(--white-color);
+  box-shadow: 0px 4px 10px var(--shadow-color); /* Match button hover shadow */
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
+  display: block; /* Show dropdown on hover */
+  animation: fadeIn 0.3s ease; /* Add a subtle fade-in effect */
 }
 
 /* Video Section */
